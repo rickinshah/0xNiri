@@ -4,5 +4,5 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=/bin/easyeffects --gapplication-service
+ExecStart=/bin/easyeffects --service-mode
 Restart=on-failure

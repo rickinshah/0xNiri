@@ -74,6 +74,10 @@ input {
     position x=1280 y=0
 }
 
+output "HDMI-A-1" {
+    // off
+}
+
 
 layout {
     gaps 4
@@ -192,18 +196,6 @@ animations {
 layer-rule {
     match namespace="waybar"
     opacity 0.99
-}
-
-layer-rule {
-    match namespace="avizo"
-    shadow {
-        on
-        softness 40
-        spread 5
-        offset x=0 y=5
-        draw-behind-window true
-        color "#00000064"
-    }
 }
 
 layer-rule {
