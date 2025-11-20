@@ -157,7 +157,7 @@ Custom unit files are stored in: `~/.config/systemd/user`
 | `swww-wallpaper.service` | Wallpaper |
 | `waybar.service` | Status bar |
 | `xwayland-satellite.service` | Xwayland support |
-| `nirius` | Nirius |
+| `nirius.service` | Nirius |
 
 ### Optional Services
 
