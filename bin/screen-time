@@ -1,0 +1,19 @@
+#!/bin/bash
+
+screen_time="$(niri-screen-time)"
+text="$(printf '%s' "$screen_time" | grep 'time' | grep -oP '\d+h\s+\d+m')"
+apps="$(printf '%s\n' "$screen_time" \
+  | sed -n '/^Report period:/,/^Summary screen time:/{
+      /^Report period:/d
+      /^Summary screen time:/d
+      /^[[:space:]]*$/d
+      s/[[:space:]]*[0-9]\+ms//g
+      p
+    }')"
+tooltip="$(printf '%s' "$apps" | sed ':a;N;$!ba;s/\n/\r/g')"
+
+jq -n \
+  --arg text "$text" \
+  --arg tooltip "$tooltip" \
+  '{text: $text, tooltip: $tooltip}' \
+| jq --unbuffered --compact-output

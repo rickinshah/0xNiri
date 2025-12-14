@@ -27,6 +27,7 @@
         "pulseaudio",
         "backlight",
         "battery",
+        "custom/screen-time",
         "tray",
         "custom/power"
     ],
@@ -139,6 +140,14 @@
         "tooltip-format": "{title}",
         "on-click": "activate",
         "on-click-middle": "close"
+    },
+    "custom/screen-time": {
+        "tooltip": true,
+        "format": " {text}",
+        // "exec": "niri-screen-time | grep 'time' | grep -oP '\\d+h\\s+\\d+m'",
+        "exec": "screen-time",
+        "interval": 60,
+        "return-type": "json"
     },
     "custom/notification": {
         "tooltip-format": "Notifications",

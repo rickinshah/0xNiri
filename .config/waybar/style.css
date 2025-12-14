@@ -112,6 +112,7 @@ tooltip label {
 #custom-notification.notification,
 #custom-notification.dnd-none,
 #custom-notification.dnd-notification,
+#custom-screen-time,
 #idle_inhibitor,
 #privacy,
 #mpris,
@@ -150,6 +151,11 @@ tooltip label {
 /* Custom Notification - Mauve */
 #custom-notification {
     background-color: @mauve;
+    border-radius: 10px;
+}
+
+#custom-screen-time {
+    background-color: #94e2d5;
     border-radius: 10px;
 }
 
