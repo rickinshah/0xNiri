@@ -207,16 +207,14 @@ window {
     background-color: #74c7ec;
 }
 
-#user-box {
-    background-color: rgba(49, 50, 68, 0.65);
-    /* mantle with transparency */
-    border: 1px solid rgba(108, 112, 134, 0.35);
-    background-color: rgba(49, 50, 68, 0.9);
-    border-radius: 16px;
-    /* padding: 10px 24px; */
-    padding: 8px 14px;
-    margin: 10px 0;
-}
+/* #user-box { */
+/*     background-color: rgba(49, 50, 68, 0.65); */
+/*     border: 1px solid rgba(108, 112, 134, 0.35); */
+/*     background-color: rgba(49, 50, 68, 0.9); */
+/*     border-radius: 16px; */
+/*     padding: 8px 14px; */
+/*     margin: 10px 0; */
+/* } */
 
 #user-box>* {
     margin-right: 8px;
@@ -227,8 +225,8 @@ window {
 }
 
 #user-name {
-    font-size: 20px;
+    font-size: 0px;
     color: #cdd6f4;
-    font-weight: 600;
-    margin-right: 224px;
+    font-weight: 400;
+    /* margin-right: 224px; */
 }
