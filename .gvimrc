@@ -1,0 +1,26 @@
+:set guioptions-=m
+:set guioptions-=T
+:set guifont=JetBrainsMono\ Nerd\ Font\ SemiBold\ 14
+:colorscheme catppuccin_mocha
+:set relativenumber
+:set incsearch
+:set ignorecase
+:set smartcase
+:set hlsearch
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
+:set autoindent
+:set smartindent
+:set cursorline
+:set noswapfile
+:set nobackup
+:set nowritebackup
+:set undolevels=2000
+:set splitbelow
+:set splitright
+:set mouse=a
+:set clipboard=unnamedplus
+:set laststatus=2
+:set showcmd
+:set ruler
