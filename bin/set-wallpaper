@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [[ -z "$1" || "$1" == "--help" || "$1" == "-h" || "$1" == "-help" ]]; then
-    echo "Usage: set-wallpaper.sh /path/to/image"
+    echo "Usage: set-wallpaper /path/to/image"
     echo ""
     echo "Example:"
-    echo "  set-wallpaper.sh ~/Pictures/cool-wallpaper.jpg"
+    echo "  set-wallpaper ~/Pictures/cool-wallpaper.jpg"
     exit 0
 fi
 

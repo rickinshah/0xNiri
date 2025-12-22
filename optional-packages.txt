@@ -1,9 +1,0 @@
-go
-mugshot
-librewolf-bin
-gvim
-neovide
-neovim
-ly
-gnome-tweaks
-gnome-shell

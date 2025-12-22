@@ -1,5 +1,13 @@
 # 0xNiri
 
+```text
+   ____       _   ___      _ 
+  / __ \_  __/ | / (_)____(_)
+ / / / / |/_/  |/ / / ___/ /
+/ /_/ />  </ /|  / / /  / /
+\____/_/|_/_/ |_/_/_/  /_/
+```
+
 Personal dotfiles for the [Niri](https://github.com/YaLTeR/niri) Wayland compositor.
 
 > Theme: [Catppuccin Mocha](https://github.com/catppuccin)
@@ -37,15 +45,30 @@ https://github.com/user-attachments/assets/8d2dd5dd-cd29-47e0-b2bc-d6dafb082748
 > [!NOTE]
 > This setup is intended for Arch-based distributions.
 
-### Clone the repo
+### Automated [Under Developement]
+
+> [!WARNING]
+> Manual Installation is recommended. This is still under development.
+
+> [!NOTE]
+> This may overwrite your existing config. Backup your old config files.
+
 ```bash
-git clone https://github.com/rickinshah/0xNiri.git ~/.dotfiles
-cd ~/.dotfiles
+git clone https://github.com/rickinshah/0xNiri.git ~/0xNiri
+cd ~/0xNiri
+./install.sh
 ```
 
-### Installation
+### Manual
 
-#### 1. Install required packages
+#### 1. Clone the repo
+```bash
+git clone https://github.com/rickinshah/0xNiri.git ~/0xNiri
+cd ~/0xNiri
+```
+
+
+#### 2. Install required packages
 
 ##### Install `yay`
 ```bash
@@ -58,31 +81,30 @@ rm -rf ~/yay
 
 ##### Install packages
 ```bash
-cd ~/.dotfiles
-yay -S --needed --noconfirm $(cat packages.txt)
+yay -S --needed --noconfirm - < ~/0xNiri/packages.list
 ```
 
 ##### Install optional packages
 ```bash
-yay -S --needed --noconfirm $(cat optional-packages.txt)
+yay -S --needed --noconfirm - < ~/0xNiri/optional-packages.list
 ```
 
-#### 2. Set `fish` as default shell
+#### 3. Set `fish` as default shell
 ```bash
 chsh -s /bin/fish
 ```
 
-#### 3. Setup config files
+#### 4. Setup config files
 ```fish
-cp -r ~/.dotfiles/.config/. ~/.config/
+cp -r ~/0xNiri/.config/. ~/.config/
 ```
 
-#### 4. Setup scripts
+#### 5. Setup scripts
 
 ##### Move scripts to `~/.local/share/bin`
 ```fish
 mkdir -p ~/.local/share/bin
-cp -r ~/.dotfiles/bin/. ~/.local/share/bin
+cp -r ~/0xNiri/bin/. ~/.local/share/bin
 ```
 
 ##### Add `~/.local/share/bin` to `PATH` variable
@@ -90,26 +112,21 @@ cp -r ~/.dotfiles/bin/. ~/.local/share/bin
 fish_add_path -a ~/.local/share/bin
 ```
 
-##### Remove `~/.dotfiles`
-```fish
-trash ~/.dotfiles
-```
-
 > [!WARNING]
 > Some keybindings or systemd services may not work if `~/.local/share/bin` is not added to your `PATH` variable.
 
-#### 5. Start the essential startup applications. [Refer to this section](#startup-applications)
+#### 6. Start the essential startup applications. [Refer to this section](#startup-applications)
 
-#### 6. `Logout` or `Restart`
+#### 7. `Logout` or `Restart`
 
-### Post Installation [Optional]
+#### 8. Post Installation
 
-#### Set Wallpaper
+##### Set Wallpaper
 ```fish
 set-wallpaper ~/.config/niri/wallpaper.jpg
 ```
 
-#### Install & set GTK Theme
+##### Install & set GTK Theme
 ```fish
 git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git ~/themes
 bash ~/themes/themes/install.sh --tweaks macos float -t lavender -l
@@ -117,27 +134,20 @@ gsettings set org.gnome.desktop.interface gtk-theme "'Catppuccin-Lavender-Dark'"
 trash ~/themes
 ```
 
-#### Install & set Icon Theme
+##### Install & set Icon Theme
 ```fish
 papirus-folders -C cat-latte-lavender --theme Papirus-Light
 gsettings set org.gnome.desktop.interface icon-theme "'Papirus-Light'"
 ```
 
-#### Customize `fish` shell
+##### Customize `fish` shell
 ```fish
 fisher install IlanCosman/tide@v6
 ```
 
-#### Install `niri-screen-time`
+##### Set profile picture in `gtklock`
 ```fish
-sudo pacman -S go
-go install github.com/probeldev/niri-screen-time@latest
-fish_add_path -a $(go env GOPATH)/bin
-```
-
-#### Set profile picture in `gtklock`
-```fish
-mv ~/.dotfiles/.face.jpg ~/.face
+mugshot
 ```
 
 ## Startup Applications
@@ -150,35 +160,43 @@ Custom unit files are stored in: `~/.config/systemd/user`
 
 | Service | Purpose |
 | - | - |
-| `syshud.service` | OSD for volume/brightness |
-| `cliphist.service` | Clipboard Manager |
-| `polkit-gnome.service` | Polkit auth agent |
-| `swaybg.service` | Blur Wallpaper(overview mode) |
-| `swww-wallpaper.service` | Wallpaper |
-| `waybar.service` | Status bar |
-| `xwayland-satellite.service` | Xwayland support |
-| `nirius.service` | Nirius |
+| `cliphist` | Clipboard Manager |
+| `niri-screen-time` | Screen Time |
+| `nirius` | Nirius |
+| `polkit-gnome` | Polkit auth agent |
+| `swaybg` | Blur Wallpaper(overview mode) |
+| `swww-wallpaper` | Wallpaper |
+| `syshud` | OSD for volume/brightness |
+| `waybar` | Status bar |
+| `xwayland-satellite` | Xwayland support |
 
 ### Optional Services
 
 | Service | Purpose |
 | - | - |
-| `auto-hide-waybar.service` | Auto hide waybar |
-| `check-updates.service` | Check updates and notify on startup |
-| `kdeconnect-indicator.service` | KDE Connect |
-| `niri-screen-time.service` | Screen Time |
-| `wlsunset.service` | Night Mode |
+| `auto-hide-waybar` | Auto hide waybar |
+| `autotrash` | Removes trash items older than 30 days |
+| `kdeconnect-indicator` | KDE Connect |
+| `wlsunset` | Night Light |
 
-Enable services with:
+#### Enable services with:
 ```fish
 systemctl --user add-wants niri.service <service>.service
 ```
 
-For example:
+#### For example:
 ```fish
 systemctl --user add-wants niri.service waybar.service
 systemctl --user add-wants niri.service syshud.service
 ```
+
+## Useful Locations
+
+#### Go through following locations to make your life easier.
+
+- Configs - `~/.config`
+- Scripts - `~/.local/share/bin`
+- Services - `~/.config/systemd/user`
 
 ## Credits
 
