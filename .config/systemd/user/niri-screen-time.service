@@ -4,5 +4,5 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=%h/.local/share/go/bin/niri-screen-time -daemon
+ExecStart=/bin/niri-screen-time -daemon
 Restart=on-failure
