@@ -4,5 +4,5 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/swayidle -w timeout 180 'niri msg action power-off-monitors' timeout 300 'pgrep gtklock || gtklock -d' timeout 600 'systemctl suspend' before-sleep 'pgrep gtklock || gtklock -d'
+ExecStart=/usr/bin/swayidle -w timeout 180 'niri msg action power-off-monitors' timeout 300 'pgrep gtklock || gtklock -d' timeout 600 'systemctl suspend' before-sleep 'playerctl pause && pgrep gtklock || gtklock -d'
 Restart=on-failure

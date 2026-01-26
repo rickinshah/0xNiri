@@ -30,10 +30,10 @@ end
 
 function fish_command_not_found
     if type -q yay
-        echo "Command '$argv' not found. Searching in packages..."
-        pacman -F $argv
+        echo "Command '$argv[1]' not found. Searching in packages..."
+        pacman -F $argv[1]
     else
-        echo "Command '$argv' not found and 'yay' is not installed."
+        echo "Command '$argv[1]' not found and 'yay' is not installed."
     end
 end
 
