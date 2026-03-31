@@ -6,6 +6,14 @@ text="$(printf '%s' "$screen_time" \
   | grep -oP '(?:\d+h\s*)?\d+m(?!s)' \
   | tr -d '\n')"
 
+summary_line="$(printf '%s' "$screen_time" | grep 'Summary screen time')"
+
+hours="$(printf '%s' "$summary_line" | grep -oP '\d+h')"
+mins="$(printf '%s' "$summary_line" | grep -oP '\d+m')"
+
+text="${hours} ${mins}"
+text="$(echo "$text" | xargs)"  # trim spaces
+
 [ -z "$text" ] && text="0m"
 
 apps="$(printf '%s\n' "$screen_time" \

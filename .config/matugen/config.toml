@@ -25,6 +25,10 @@ output_path = '~/.config/fuzzel/fuzzel.ini'
 input_path = '~/.config/matugen/templates/niri-layout.kdl'
 output_path = '~/.config/niri/layout.kdl'
 
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/theme.conf'
+
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
