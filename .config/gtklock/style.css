@@ -96,7 +96,6 @@ window {
     min-width: 90px;
     min-height: 34px;
     border-radius: 999px;
-    color: #1e1e2e;
     border: none;
     margin: 4px;
     background-clip: padding-box;
@@ -106,7 +105,7 @@ window {
 #poweroff-button:hover,
 #reboot-button:hover,
 #suspend-button:hover {
-    background-color: @surface_container_highest;
+    background-color: @primary_container;
 }
 
 #logout-button,

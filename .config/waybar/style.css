@@ -112,7 +112,6 @@ tooltip label {
 #backlight:hover,
 #battery:hover,
 #clock:hover,
-#workspaces:hover,
 #custom-clipboard:hover,
 #custom-launcher:hover,
 #custom-notification:hover,
@@ -125,7 +124,8 @@ tooltip label {
 #pulseaudio:hover,
 #tray:hover,
 #workspace button:hover {
-    background-color: @surface_container_highest;
+    background-color: @primary;
+    color: @on_primary;
     box-shadow: 0 2px 6px alpha(@shadow, 0.3);
     transition: all 0.2s ease-in;
 }

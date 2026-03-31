@@ -9,7 +9,7 @@ text="$(printf '%s' "$screen_time" \
 summary_line="$(printf '%s' "$screen_time" | grep 'Summary screen time')"
 
 hours="$(printf '%s' "$summary_line" | grep -oP '\d+h')"
-mins="$(printf '%s' "$summary_line" | grep -oP '\d+m')"
+mins="$(printf '%s' "$summary_line" | grep -oP '\d+m(?!s)' | head -1)"
 
 text="${hours} ${mins}"
 text="$(echo "$text" | xargs)"  # trim spaces
