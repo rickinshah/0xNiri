@@ -43,3 +43,40 @@ layout {
         color "#0007"
     }
 }
+
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        active-color "{{colors.primary.default.hex}}"
+        urgent-color "{{colors.error.default.hex}}"
+        padding 30
+        corner-radius 16
+    }
+
+    previews {
+        max-height 720
+        max-scale 1
+    }
+
+    binds {
+        Alt+Tab         { next-window       scope="all";                            }
+        Alt+Shift+Tab   { previous-window   scope="all";                            }
+        Alt+grave       { next-window                           filter="app-id";    }
+        Alt+Shift+grave { previous-window                       filter="app-id";    }
+
+        Mod+Tab         { next-window       scope="workspace";                      }
+        Mod+Shift+Tab   { previous-window   scope="workspace";                      }
+        Mod+grave       { next-window                           filter="app-id";    }
+        Mod+Shift+grave { previous-window                       filter="app-id";    }
+    }
+}
+
+overview {
+    zoom 0.75
+
+    backdrop-color "{{colors.background.default.hex}}"
+}

@@ -1,5 +1,5 @@
 environment {
-    DISPLAY ":0"
+    DISPLAY ":1"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     QT_QPA_PLATFORMTHEME "qt6ct"
     // QT_STYLE_OVERRIDE "kvantum"
@@ -78,103 +78,6 @@ output "HDMI-A-1" {
     // off
 }
 
-recent-windows {
-    // off
-    debounce-ms 750
-
-    open-delay-ms 150
-
-    highlight {
-        active-color "#b4befeff"
-        urgent-color "#9b0000ff"
-        padding 30
-        corner-radius 16
-    }
-
-    previews {
-        max-height 720
-        max-scale 1
-    }
-
-    binds {
-        Alt+Tab         { next-window       scope="all";                            }
-        Alt+Shift+Tab   { previous-window   scope="all";                            }
-        Alt+grave       { next-window                           filter="app-id";    }
-        Alt+Shift+grave { previous-window                       filter="app-id";    }
-
-        Mod+Tab         { next-window       scope="workspace";                      }
-        Mod+Shift+Tab   { previous-window   scope="workspace";                      }
-        Mod+grave       { next-window                           filter="app-id";    }
-        Mod+Shift+grave { previous-window                       filter="app-id";    }
-    }
-}
-
-// layout {
-//     gaps 4
-//
-//     always-center-single-column
-//
-//     center-focused-column "on-overflow"
-//
-//     preset-column-widths {
-//         proportion 0.33333
-//         proportion 0.5
-//         proportion 0.66667
-//         proportion 0.75
-//         proportion 0.9
-//     }
-//
-//     // preset-window-heights { }
-//     default-column-width {}
-//
-//     focus-ring {
-//         // off
-//
-//         width 2
-//
-//         active-color "#b7bdf8"
-//
-//         inactive-color "#505050"
-//
-//         // active-gradient from="#80c8ff" to="#bbddff" angle=45
-//
-//         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-//     }
-//
-//     border {
-//         off
-//
-//         // width 2
-//         active-color "#b7bdf8"
-//         inactive-color "#505050"
-//
-//         urgent-color "#9b0000"
-//
-//         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-//         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-//     }
-//
-//     shadow {
-//         // on
-//         // draw-behind-window true
-//
-//         softness 30
-//
-//         spread 5
-//
-//         offset x=0 y=5
-//
-//         color "#0007"
-//     }
-//
-//     struts {
-//         // left 64
-//         // right 64
-//         // top 64
-//         // bottom 64
-//     }
-// }
-
 prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H%M%S.png"
@@ -183,41 +86,41 @@ screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H%M%S.png"
 animations {
     // off
     window-close {
-        duration-ms 250
+        duration-ms 120
         curve "ease-out-quad"
     }
 
     screenshot-ui-open {
-        duration-ms 500
+        duration-ms 250
         curve "ease-out-quad"
     }
 
     workspace-switch {
-        spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+        spring damping-ratio=0.8 stiffness=320 epsilon=0.001
     }
 
     config-notification-open-close {
-        spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+        spring damping-ratio=0.8 stiffness=320 epsilon=0.001
     }
 
     overview-open-close {
-        spring damping-ratio=0.7 stiffness=200 epsilon=0.001
+        spring damping-ratio=0.8 stiffness=320 epsilon=0.001
     }
 
     horizontal-view-movement {
-        spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+        spring damping-ratio=0.8 stiffness=320 epsilon=0.001
     }
 
     window-resize {
-        spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+        spring damping-ratio=0.8 stiffness=320 epsilon=0.001
     }
 
     window-open {
-        spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+        spring damping-ratio=0.8 stiffness=320 epsilon=0.001
     }
 
     window-movement {
-        spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+        spring damping-ratio=0.8 stiffness=320 epsilon=0.001
     }
 
     // slowdown 3.0
@@ -407,12 +310,6 @@ window-rule {
 
 hotkey-overlay {
     skip-at-startup
-}
-
-overview {
-    zoom 0.75
-
-    backdrop-color "#313244"
 }
 
 binds {

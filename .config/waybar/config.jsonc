@@ -21,7 +21,6 @@
     "modules-right": [
         "privacy",
         "idle_inhibitor",
-        "power-profiles-daemon",
         "pulseaudio",
         "backlight",
         "battery",
