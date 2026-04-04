@@ -8,8 +8,6 @@
 
 Personal dotfiles for the [Niri](https://github.com/YaLTeR/niri) Wayland compositor.
 
-> Theme: [Catppuccin Mocha](https://github.com/catppuccin)
-
 ## Preview
 
 https://github.com/user-attachments/assets/8d2dd5dd-cd29-47e0-b2bc-d6dafb082748
@@ -17,7 +15,6 @@ https://github.com/user-attachments/assets/8d2dd5dd-cd29-47e0-b2bc-d6dafb082748
 ## Features
 
 - Waybar auto-hide script.
-- Consistent **Catppuccin Mocha** theme across all apps.
 - Full desktop-like experience on a minimal **Niri** setup.
 
 ## Tools & Utilities
@@ -28,7 +25,7 @@ https://github.com/user-attachments/assets/8d2dd5dd-cd29-47e0-b2bc-d6dafb082748
 | Bar | [`waybar`](https://github.com/Alexays/Waybar) |
 | Terminal | [`kitty`](https://github.com/kovidgoyal/kitty) |
 | Notification | [`swaync`](https://github.com/ErikReider/SwayNotificationCenter) |
-| Wallpaper Manager | [`swaybg`](https://github.com/swaywm/swaybg) / [`swww`](https://github.com/LGFae/swww) |
+| Wallpaper Manager | [`swaybg`](https://github.com/swaywm/swaybg) / [`awww`](https://codeberg.org/LGFae/awww) |
 | Clipboard Manager | [`cliphist`](https://github.com/sentriz/cliphist) |
 | Launcher | [`fuzzel`](https://codeberg.org/dnkl/fuzzel) |
 | Power Menu | [`wlogout`](https://github.com/ArtsyMacaw/wlogout) |
@@ -164,7 +161,7 @@ Custom unit files are stored in: `~/.config/systemd/user`
 | `nirius` | Nirius |
 | `polkit-gnome` | Polkit auth agent |
 | `swaybg` | Blur Wallpaper(overview mode) |
-| `swww-wallpaper` | Wallpaper |
+| `awww-wallpaper` | Wallpaper |
 | `syshud` | OSD for volume/brightness |
 | `waybar` | Status bar |
 | `xwayland-satellite` | Xwayland support |
