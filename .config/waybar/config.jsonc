@@ -23,8 +23,7 @@
         "idle_inhibitor",
         "pulseaudio",
         "backlight",
-        "battery",
-        "custom/screen-time",
+        "battery", "custom/screen-time",
         "tray",
         "custom/power"
     ],
@@ -101,6 +100,16 @@
             "activated": "󰈈",
             "deactivated": "󰈉"
         }
+    },
+    "mpris": {
+        "player-icons": {
+            "default": "🎵"
+        },
+        "format": "⏸ {dynamic}",
+        "format-paused": "▶ {dynamic}",
+        "format-stopped": "⏹ Stopped",
+        "interval": 1,
+        "max-length": 70
     },
     "niri/workspaces": {
         "format": "{icon}",

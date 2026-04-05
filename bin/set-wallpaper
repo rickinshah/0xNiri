@@ -15,6 +15,9 @@ fi
 
 magick $1 ~/.config/niri/wallpaper.jpg
 magick ~/.config/niri/wallpaper.jpg -blur 0x10 ~/.config/niri/wallpaper-blur.jpg
+matugen image ~/.config/niri/wallpaper.jpg
 awww img ~/.config/niri/wallpaper.jpg --transition-type=wave --transition-angle=30 --transition-duration=2
 systemctl --user restart swaybg.service
-matugen image ~/.config/niri/wallpaper.jpg
+systemctl --user restart syshud.service
+systemctl --user restart swaync.service
+kitty @ load-config
