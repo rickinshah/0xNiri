@@ -15,6 +15,7 @@ https://github.com/user-attachments/assets/c70f715a-8a35-454b-bc86-7f2d9fa9aa2c
 ## Features
 
 - Waybar auto-hide script.
+- Auto-generate application color scheme from wallpaper.
 - Full desktop-like experience on a minimal **Niri** setup.
 
 ## Tools & Utilities
