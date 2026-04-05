@@ -6,3 +6,5 @@ colors.json
 fuzzel.ini
 .config/niri/layout.kdl
 .config/kitty/theme.conf
+.config/fastfetch/pngs
+.config/kitty
