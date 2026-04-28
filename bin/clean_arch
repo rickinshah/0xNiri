@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo paccache -ruk0
+sudo paccache -rk3
+yay -Sc
+# sudo journalctl --vacuum-size=500M
