@@ -15,7 +15,15 @@ workspace "2"
 workspace "3"
 workspace "4"
 
+blur {
+    passes 3
+    offset 3
+    noise 0.02
+    saturation 1.0
+}
+
 input {
+    workspace-auto-back-and-forth
     keyboard {
         xkb {
             options "caps:swapescape"
@@ -128,7 +136,11 @@ animations {
 
 layer-rule {
     match namespace="waybar"
-    opacity 0.99
+    opacity 0.8
+    background-effect {
+        xray true
+        blur true
+    }
 }
 
 layer-rule {
@@ -137,14 +149,38 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="swaync-control-center"
+    match namespace="syshud"
+    background-effect {
+        xray false
+        blur true
+    }
+}
+
+layer-rule {
+    match namespace="syshud"
+    background-effect {
+        xray false
+        blur true
+    }
+    geometry-corner-radius 24
+}
+
+layer-rule {
     match namespace="launcher"
-    shadow {
-        on
-        softness 40
-        spread 5
-        offset x=0 y=5
-        draw-behind-window true
-        color "#00000064"
+    background-effect {
+        xray false
+        blur true
+    }
+
+    geometry-corner-radius 6
+}
+
+layer-rule {
+    match namespace=r#"^logout_dialog$"#
+    background-effect {
+        xray false
+        blur true
     }
 }
 
@@ -157,6 +193,16 @@ window-rule {
     draw-border-with-background false
     geometry-corner-radius 16
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"^org.gnome.Nautilus$"#
+    match app-id=r#"^org.gnome.Papers$"#
+    match app-id=r#"^org.gnome.Loupe$"#
+    background-effect {
+        xray false
+        blur true
+    }
 }
 
 window-rule {
@@ -174,7 +220,8 @@ window-rule {
     match app-id=r#"^org.kde.kcalc$"#
     match app-id=r#"^Vivado 2022.2 Installer$"#
     match app-id=r#"^org.gnome.Calendar$"#
-    match app-id="Tk"
+    match app-id=r#"^Tk$"#
+    match app-id=r#"^org.gnome.Loupe$"#
 
     open-floating true
 }
@@ -189,6 +236,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"^thunar$"#
+    match app-id=r#"^org.gnome.Nautilus$"#
     min-width 800
     max-width 1176
     min-height 600
@@ -224,16 +272,25 @@ window-rule {
 window-rule {
     match app-id=r#"^kitty$"#
     open-on-workspace "1"
+    background-effect {
+        xray true
+        blur true
+    }
     default-column-width {proportion 0.5;}
 }
 
 window-rule {
     match app-id=r#"zen$"#
     match app-id=r#"vivaldi-stable$"#
-    // match app-id=r#"chromium$"#
+    match app-id=r#"chromium$"#
     match app-id=r#"librewolf$"#
     match app-id=r#"google-chrome$"#
     match app-id=r#"firefox$"#
+    opacity 0.92
+
+    background-effect {
+        blur true
+    }
 
     open-on-workspace "2"
     open-focused true
@@ -261,12 +318,15 @@ window-rule {
     open-maximized true
 }
 
-window-rule {
-    match app-id=r#"chromium"#
 
-    open-on-workspace "3"
-    default-column-width { proportion 0.5; }
+window-rule {
+    match app-id=r#"^codium$"#
+    background-effect {
+        blur true
+    }
+    opacity 0.9
 }
+
 
 window-rule {
     match app-id=r#"org.pwmt.zathura"#
@@ -326,7 +386,7 @@ binds {
     Mod+Print       hotkey-overlay-title="Screen Recording: gpu-screen-recorder"    repeat=false    { spawn "gpu-screen-recorder-gtk"; }
     Mod+F1          hotkey-overlay-title="Open Text editor: neovim"                 repeat=false    { spawn "kitty" "--title=[nvim]" "nvim"; }
     Mod+F2          hotkey-overlay-title="Open Browser: librewolf"                  repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=librewolf" "librewolf"; }
-    Mod+F3          hotkey-overlay-title="Open File Manager: thunar"                repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=thunar" "thunar"; }
+    Mod+F3          hotkey-overlay-title="Open File Manager: nautilus"                repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=org.gnome.Nautilus" "nautilus"; }
     Mod+F4          hotkey-overlay-title="Open OBS Studio: obs"                     repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=com.obsproject.Studio" "obs"; }
     Mod+T           hotkey-overlay-title="Open a Terminal: kitty"                   repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=kitty" "--workspace-id=1" "kitty"; }
     Mod+O           hotkey-overlay-title="Toggle Overview Mode"                     repeat=false    { toggle-overview; }
@@ -350,19 +410,19 @@ binds {
 
     Mod+Q           { close-window; }
 
-    Mod+Left        { focus-column-left; }
-    Mod+Down        { focus-window-down; }
-    Mod+Up          { focus-window-up; }
-    Mod+Right       { focus-column-right; }
+    Mod+Left        { focus-column-or-monitor-left; }
+    Mod+Down        { focus-window-or-workspace-down; }
+    Mod+Up          { focus-window-or-workspace-up; }
+    Mod+Right       { focus-column-or-monitor-right; }
     Mod+H           { focus-column-left; }
     Mod+J           { focus-window-down-or-top; }
     Mod+K           { focus-window-up-or-bottom; }
     Mod+L           { focus-column-right; }
 
-    Mod+Shift+Left  { move-column-left; }
-    Mod+Shift+Down  { move-window-down; }
-    Mod+Shift+Up    { move-window-up; }
-    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Left  { move-column-left-or-to-monitor-left; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Right { move-column-right-or-to-monitor-right; }
     Mod+Shift+H     { move-column-left; }
     Mod+Shift+J     { move-window-down; }
     Mod+Shift+K     { move-window-up; }

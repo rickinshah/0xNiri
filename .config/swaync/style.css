@@ -45,7 +45,7 @@ trough {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px @outline_variant;
   border-radius: 12.6px;
   margin: 18px;
-  background: @surface;
+  background: alpha(@surface, 0.9);
   color: @on_surface;
   padding: 0;
 }
@@ -111,7 +111,7 @@ trough {
 }
 
 .notification .notification-action {
-  background-color: @surface_container;
+  background-color: alpha(@surface_container, 0.9);
 }
 
 .notification .notification-action:hover {
@@ -142,7 +142,7 @@ trough {
 .control-center {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px @outline_variant;
   border-radius: 12.6px;
-  background-color: @surface;
+  background-color: alpha(@surface, 0.9);
   color: @on_surface;
   padding: 14px;
   margin: 8px;
@@ -170,7 +170,7 @@ trough {
 .control-center .widget-title button {
   border-radius: 7px;
   color: @on_surface;
-  background-color: @surface_container;
+  background-color: alpha(@surface_container, 0.9);
   box-shadow: inset 0 0 0 1px @outline_variant;
   padding: 8px;
 }
@@ -225,13 +225,13 @@ scrollbar trough {
 
 /* mpris */
 .widget-mpris-player {
-  background: @surface_container;
+  background: alpha(@surface_container, 0.9);
   border-radius: 12.6px;
   color: @on_surface;
 }
 
 .mpris-overlay {
-  background-color: @surface_container;
+  background-color: alpha(@surface_container, 0.9);
   opacity: 0.9;
   padding: 15px 10px;
 }

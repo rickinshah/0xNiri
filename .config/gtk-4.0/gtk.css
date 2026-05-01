@@ -1,1 +1,34 @@
-/usr/share/themes/adw-gtk3-dark/gtk-4.0/gtk.css
+@import './colors.css';
+
+window,
+.background,
+.sidebar-pane {
+    background-color: alpha(@background, 0.4);
+}
+
+popover {
+    background-color: alpha(@background, 1);
+}
+
+popover>contents {
+    background-color: alpha(@background, 0.98);
+}
+
+popover.background {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+row:selected,
+row:hover {
+    background-color: alpha(@primary, 0.3);
+}
+
+modelbutton:hover,
+modelbutton:selected {
+    background-color: alpha(@primary, 0.3);
+}
+
+.undershoot-top {
+    background-color: alpha(@background, 0.8);
+}

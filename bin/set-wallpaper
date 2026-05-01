@@ -21,3 +21,4 @@ systemctl --user restart swaybg.service
 systemctl --user restart syshud.service
 systemctl --user restart swaync.service
 kitty @ load-config
+pkill nautilus

@@ -5,10 +5,10 @@
 }
 
 #syshud .box_layout {
-	background: @surface;
+	background: alpha(@surface, 0.75);
 	border-radius: 25px;
 	border: 1px solid @outline;
-	margin: 10px;
+	margin: 0px 0px 0px 0px;
 }
 
 #syshud scale {
@@ -36,7 +36,7 @@
 #syshud scale.horizontal highlight {
 	border-radius: 3px;
 	min-height: 5px;
-	background: alpha(@primary, 0.75);
+	background: alpha(@primary, 0.7);
 	margin: 0px;
 }
 

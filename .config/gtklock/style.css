@@ -66,7 +66,7 @@ window {
 }
 
 #unlock-button {
-    background-color: @primary;
+    background-color: alpha(@primary, 0.5);
     border-radius: 999px;
     padding: 6px 16px;
     font-size: 16px;
@@ -80,7 +80,8 @@ window {
 }
 
 #unlock-button:hover {
-    background-color: @primary_container;
+    /* background-color: @primary_container; */
+    background-color: alpha(@primary, 1);
 }
 
 #powerbar-box {
@@ -112,7 +113,7 @@ window {
 #poweroff-button,
 #reboot-button,
 #suspend-button {
-    background-color: @surface_container_high;
+    background-color: alpha(@surface_container_high, 0.8);
     color: @on_surface;
 }
 
