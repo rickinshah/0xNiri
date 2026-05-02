@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/c70f715a-8a35-454b-bc86-7f2d9fa9aa2c
 | Bar | [`waybar`](https://github.com/Alexays/Waybar) |
 | Terminal | [`kitty`](https://github.com/kovidgoyal/kitty) |
 | Notification | [`swaync`](https://github.com/ErikReider/SwayNotificationCenter) |
-| Wallpaper Manager | [`swaybg`](https://github.com/swaywm/swaybg) / [`awww`](https://codeberg.org/LGFae/awww) |
+| Wallpaper Manager | [`awww`](https://codeberg.org/LGFae/awww) |
 | Clipboard Manager | [`cliphist`](https://github.com/sentriz/cliphist) |
 | Launcher | [`fuzzel`](https://codeberg.org/dnkl/fuzzel) |
 | Power Menu | [`wlogout`](https://github.com/ArtsyMacaw/wlogout) |
@@ -161,8 +161,8 @@ Custom unit files are stored in: `~/.config/systemd/user`
 | `niri-screen-time` | Screen Time |
 | `nirius` | Nirius |
 | `polkit-gnome` | Polkit auth agent |
-| `swaybg` | Blur Wallpaper(overview mode) |
-| `awww-wallpaper` | Wallpaper |
+| `blur-wallpaper` | Blur Wallpaper(overview mode) |
+| `wallpaper` | Wallpaper |
 | `syshud` | OSD for volume/brightness |
 | `waybar` | Status bar |
 | `xwayland-satellite` | Xwayland support |

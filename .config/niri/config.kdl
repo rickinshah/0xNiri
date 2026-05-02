@@ -185,7 +185,7 @@ layer-rule {
 }
 
 layer-rule {
-    match namespace="^wallpaper$"
+    match namespace="^awww-daemonblur-wallpaper$"
     place-within-backdrop true
 }
 
@@ -199,6 +199,7 @@ window-rule {
     match app-id=r#"^org.gnome.Nautilus$"#
     match app-id=r#"^org.gnome.Papers$"#
     match app-id=r#"^org.gnome.Loupe$"#
+    match app-id=r#"^io.github.celluloid_player.Celluloid$"#
     background-effect {
         xray false
         blur true
@@ -321,6 +322,7 @@ window-rule {
 
 window-rule {
     match app-id=r#"^codium$"#
+    match app-id=r#"^dev.zed.Zed$"#
     background-effect {
         blur true
     }

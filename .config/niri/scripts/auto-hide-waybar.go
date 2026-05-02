@@ -22,6 +22,7 @@ const (
 	workspaceActiveWindowChanged = "WorkspaceActiveWindowChanged"
 	workspaceActivated           = "WorkspaceActivated"
 	overviewOpenedOrClosed       = "OverviewOpenedOrClosed"
+	windowFocusChanged           = "WindowFocusChanged"
 )
 
 func init() {
@@ -157,7 +158,7 @@ func main() {
 			} else {
 				AutoToggle(eventConn)
 			}
-		} else if !overviewMode && (event[workspaceActiveWindowChanged] != nil || event[windowOpenedOrChanged] != nil || event[workspaceActivated] != nil) {
+		} else if !overviewMode && (event[workspaceActiveWindowChanged] != nil || event[windowOpenedOrChanged] != nil || event[workspaceActivated] != nil || event[windowFocusChanged] != nil) {
 			AutoToggle(eventConn)
 		}
 
