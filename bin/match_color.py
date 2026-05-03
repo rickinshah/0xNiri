@@ -10,31 +10,31 @@ from skimage.color import deltaE_ciede2000
 # Palette
 # --------------------------------------------------
 PALETTE = {
-    # "adwaita": "#93c0ea",
-    # "black": "#4f4f4f",
-    # "blue": "#5294e2",
-    # "bluegrey": "#6c7a89",
-    # "breeze": "#3daee9",
-    # "brown": "#a0743c",
-    # "carmine": "#a30002",
-    # "cyan": "#00bcd4",
-    # "darkcyan": "#008b8b",
-    # "deeporange": "#ff5722",
-    # "green": "#4caf50",
-    # "grey": "#9e9e9e",
-    # "indigo": "#3f51b5",
-    # "magenta": "#e91e63",
-    # "nordic": "#5e81ac",
-    # "orange": "#ff9800",
-    # "palebrown": "#d7a86e",
-    # "paleorange": "#ffb74d",
-    # "pink": "#ff6fae",
-    # "red": "#e53935",
-    # "teal": "#009688",
-    # "violet": "#9c27b0",
-    # "white": "#ffffff",
-    # "yaru": "#e95420",
-    # "yellow": "#fbc02d",
+    "adwaita": "#93c0ea",
+    "black": "#4f4f4f",
+    "blue": "#5294e2",
+    "bluegrey": "#6c7a89",
+    "breeze": "#3daee9",
+    "brown": "#a0743c",
+    "carmine": "#a30002",
+    "cyan": "#00bcd4",
+    "darkcyan": "#008b8b",
+    "deeporange": "#ff5722",
+    "green": "#4caf50",
+    "grey": "#9e9e9e",
+    "indigo": "#3f51b5",
+    "magenta": "#e91e63",
+    "nordic": "#5e81ac",
+    "orange": "#ff9800",
+    "palebrown": "#d7a86e",
+    "paleorange": "#ffb74d",
+    "pink": "#ff6fae",
+    "red": "#e53935",
+    "teal": "#009688",
+    "violet": "#9c27b0",
+    "white": "#ffffff",
+    "yaru": "#e95420",
+    "yellow": "#fbc02d",
     # Catppuccin Mocha
     "cat-mocha-rosewater": "#f5e0dc",
     "cat-mocha-flamingo": "#f2cdcd",
@@ -125,7 +125,7 @@ PALETTE_LAB = {name: hex_to_lab(hex_val) for name, hex_val in PALETTE.items()}
 # --------------------------------------------------
 # ANSI color block
 # --------------------------------------------------
-def color_block(hex_color: str, width=6):
+def color_block(hex_color: str, width=2):
     hex_color = hex_color.lstrip("#")
     r, g, b = [int(hex_color[i : i + 2], 16) for i in (0, 2, 4)]
     return f"\033[48;2;{r};{g};{b}m{' ' * width}\033[0m"
@@ -160,8 +160,8 @@ def main():
         print("Invalid hex color. Use format: #RRGGBB")
         sys.exit(1)
 
-    print("\nInput color:")
-    print(color_block(target, 10), target)
+    print("\nInput color:", end=" ")
+    print(color_block(target), target)
 
     top_colors = top_n_colors(target, 5)
 
@@ -169,7 +169,7 @@ def main():
 
     for i, (name, dist) in enumerate(top_colors, 1):
         hex_val = PALETTE[name]
-        print(f"{i}. {color_block(hex_val)} " f"{name} ({hex_val}) ΔE={dist:.2f}")
+        print(f"{i}. {color_block(hex_val)} {hex_val}")
 
     # selection
     try:
@@ -177,14 +177,13 @@ def main():
         if not (1 <= choice <= 5):
             raise ValueError
     except ValueError:
-        print("Invalid choice")
-        sys.exit(1)
+        choice = 1
 
     selected_name, selected_dist = top_colors[choice - 1]
     selected_hex = PALETTE[selected_name]
 
-    print("\nSelected:")
-    print(color_block(selected_hex, 10), selected_name, selected_hex)
+    print("\nSelected:", end=" ")
+    print(color_block(selected_hex), selected_name, selected_hex)
 
     print(
         json.dumps(
