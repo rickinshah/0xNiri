@@ -15,10 +15,15 @@ fi
 
 magick $1 ~/.config/niri/wallpaper.jpg
 magick ~/.config/niri/wallpaper.jpg -blur 0x20 ~/.config/niri/blur-wallpaper.jpg
+
 matugen image ~/.config/niri/wallpaper.jpg
+match=$(match_color.py "$(jq -r '.colors.primary_container' ~/.config/matugen/colors.json)" | jq -r '.match')
+papirus-folders -C $match --theme Papirus-Dark
+gsettings set org.gnome.desktop.interface icon-theme "'Papirus-Dark'"
+
 awww img ~/.config/niri/wallpaper.jpg -n wallpaper --transition-type=wave --transition-angle=30 --transition-duration=2
 awww img ~/.config/niri/blur-wallpaper.jpg -n blur-wallpaper --transition-type=wave --transition-angle=30 --transition-duration=2
+
 systemctl --user restart syshud.service
 systemctl --user restart swaync.service
 kitty @ load-config
-pkill nautilus

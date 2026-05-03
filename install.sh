@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cat << 'EOF'
-   ____       _   ___      _ 
+   ____       _   ___      _
   / __ \_  __/ | / (_)____(_)
  / / / / |/_/  |/ / / ___/ /
 / /_/ />  </ /|  / / /  / /
@@ -44,7 +44,7 @@ fish_add_path -a ~/.local/share/bin
 
 # Start Essential services
 
-services=(cliphist niri-screen-time nirius polkit-gnome swaybg swww-wallpaper syshud waybar xwayland-satellite)
+services=(cliphist niri-screen-time nirius polkit-gnome blur-wallpaper wallpaper syshud waybar xwayland-satellite)
 
 for i in ${services[@]}; do
     systemctl --user add-wants niri.service "$i"
@@ -70,15 +70,7 @@ set-wallpaper ~/.config/niri/wallpaper.jpg
 
 # Install & set GTK Theme
 
-git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git ~/themes
-bash ~/themes/themes/install.sh --tweaks macos float -t lavender -l
-gsettings set org.gnome-desktop.interface gtk-theme "'Catppuccin-Lavender-Dark'"
-trash ~/themes
-
-# Install & set Icon theme
-
-papirus-folders -C cat-latte-lavender --theme Papirus-Light
-gsettings set org.gnome.desktop.interface icon-theme "'Papirus-Light'"
+gsettings set org.gnome-desktop.interface gtk-theme "'adw-gtk3-dark'"
 
 # Customize fish shell
 
