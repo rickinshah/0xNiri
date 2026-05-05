@@ -165,7 +165,7 @@ def main():
 
     top_colors = top_n_colors(target, 5)
 
-    print("\nTop 5 closest colors:\n")
+    print("\nChoose color for icon theme:\n")
 
     for i, (name, dist) in enumerate(top_colors, 1):
         hex_val = PALETTE[name]
