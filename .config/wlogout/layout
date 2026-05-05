@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "pgrep gtklock || gtklock -d",
+    "action" : "pgrep gtklock || gtklock -d -S -H",
     "text" : "Lock",
     "keybind" : "l"
 }
