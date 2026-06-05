@@ -24,6 +24,7 @@ color=$(match_color.py "$(jq -r '.colors.primary_container' ~/.config/matugen/co
   | jq -r '.selected')
 papirus-folders -C $color --theme Papirus-Dark
 gio set ~/Videos metadata::custom-icon file:///usr/share/icons/Papirus/48x48/places/folder-$color-videos.svg
+gio set ~/Games metadata::custom-icon file:///usr/share/icons/Papirus/48x48/places/folder-$color-games.svg
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 awww img -n wallpaper ~/.config/niri/wallpaper.jpg --transition-type=wave --transition-angle=30 --transition-duration=2

@@ -200,6 +200,7 @@ window-rule {
     match app-id=r#"^org.gnome.Papers$"#
     match app-id=r#"^org.gnome.Loupe$"#
     match app-id=r#"^io.github.celluloid_player.Celluloid$"#
+    match app-id=r#"^zenity$"#
     background-effect {
         xray false
         blur true
@@ -379,6 +380,8 @@ binds {
 
 
     Mod+A           hotkey-overlay-title="Run an application: fuzzel"               repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
+
+    Mod+D           hotkey-overlay-title="Go to an empty workspace"               repeat=false    { spawn "bash" "-c" "niri msg action focus-workspace $(niri msg --json workspaces | jq 'first(.[] | select(.active_window_id == null) | .id)')"; }
     Mod+E           hotkey-overlay-title="Show emojis: fuzzel"                      repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
     Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"              repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
     Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 350 -B 350 -L 100 -R 100"; }
@@ -471,16 +474,16 @@ binds {
     // Mod+TouchpadScrollDown { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     // Mod+TouchpadScrollUp   { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
 
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+0 { focus-workspace 10; }
+    Mod+1   cooldown-ms=150 { focus-workspace 1; }
+    Mod+2   cooldown-ms=150 { focus-workspace 2; }
+    Mod+3   cooldown-ms=150 { focus-workspace 3; }
+    Mod+4   cooldown-ms=150 { focus-workspace 4; }
+    Mod+5   cooldown-ms=150 { focus-workspace 5; }
+    Mod+6   cooldown-ms=150 { focus-workspace 6; }
+    Mod+7   cooldown-ms=150 { focus-workspace 7; }
+    Mod+8   cooldown-ms=150 { focus-workspace 8; }
+    Mod+9   cooldown-ms=150 { focus-workspace 9; }
+    Mod+0   cooldown-ms=150 { focus-workspace 10; }
 
     Mod+Shift+1 { move-column-to-workspace 1; }
     Mod+Shift+2 { move-column-to-workspace 2; }

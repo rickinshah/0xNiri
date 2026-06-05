@@ -2,8 +2,33 @@
 
 window,
 .background,
-.sidebar-pane {
+.sidebar-pane,
+.content-pane .undershoot-top .top-bar,
+.view {
     background-color: alpha(@background, 0.4);
+}
+
+.floating .background .message-area,
+.floating .background .response-area {
+    background-color: alpha(@background, 0.9);
+
+}
+
+.boxed-list .activatable {
+    background-color: alpha(@surface_container, 0.8);
+}
+
+*:focus {
+    outline: 1px solid @primary;
+}
+
+.text-button {
+    background-color: alpha(@surface_container, 0.9);
+}
+
+.text-button:hover {
+    background-color: alpha(@primary, 0.9);
+    color: alpha(@on_primary, 0.9);
 }
 
 popover {
@@ -29,6 +54,8 @@ modelbutton:selected {
     background-color: alpha(@primary, 0.3);
 }
 
-.undershoot-top {
+.undershoot-top,
+.shortcut-row
+{
     background-color: alpha(@background, 0.8);
 }
