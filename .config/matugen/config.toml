@@ -46,10 +46,6 @@ output_path = '~/.config/kitty/theme.conf'
 input_path = '~/.config/matugen/templates/zed-colors.json'
 output_path = '~/.config/zed/themes/matugen.json'
 
-[templates.zathura]
-input_path = '~/.config/matugen/templates/zathura-colors'
-output_path = '~/.config/zathura/zathurarc'
-
 [templates.kitty-tabs]
 input_path = '~/.config/matugen/templates/kitty-tabs.conf'
 output_path = '~/.config/kitty/tabs.conf'
@@ -103,3 +99,8 @@ output_path = '~/.config/wlogout/assets/logout.svg'
 [templates.wlogout-shutdown]
 input_path = '~/.config/matugen/templates/assets/shutdown.svg'
 output_path = '~/.config/wlogout/assets/shutdown.svg'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/matugen'
+post_hook = 'pkill -USR1 cava'
