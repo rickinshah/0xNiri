@@ -24,12 +24,23 @@ color=$(match_color.py "$(jq -r '.colors.primary_container' ~/.config/matugen/co
   | jq -r '.selected')
 papirus-folders -C $color --theme Papirus-Dark
 gio set ~/Videos metadata::custom-icon file:///usr/share/icons/Papirus/48x48/places/folder-$color-videos.svg
-gio set ~/Games metadata::custom-icon file:///usr/share/icons/Papirus/48x48/places/folder-$color-games.svg
+if [[ -d ~/Games ]]; then
+    gio set ~/Games metadata::custom-icon file:///usr/share/icons/Papirus/48x48/places/folder-$color-games.svg
+fi
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+
+current=$(gsettings get org.gnome.desktop.interface color-scheme)
+
+if [[ "$current" == "'prefer-dark'" ]]; then
+    gsettings set org.gnome.desktop.interface color-scheme prefer-light
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+else
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    gsettings set org.gnome.desktop.interface color-scheme prefer-light
+fi
 
 awww img -n wallpaper ~/.config/niri/wallpaper.jpg --transition-type=wave --transition-angle=30 --transition-duration=2
 awww img -n blur-wallpaper ~/.config/niri/blur-wallpaper.jpg --transition-type=wave --transition-angle=30 --transition-duration=2
 
 systemctl --user restart syshud.service
-systemctl --user restart swaync.service
 kitty @ load-config

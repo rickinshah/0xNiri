@@ -85,7 +85,7 @@
     "custom/power": {
         "format": "⏼",
         "tooltip": false,
-        "on-click": "wlogout -c 15 -b 6 -T 350 -B 350 -L 100 -R 100"
+        "on-click": "wlogout -c 15 -b 5 -T 350 -B 350 -L 200 -R 200"
     },
     "custom/screen-time": {
         "tooltip": true,

@@ -5,6 +5,10 @@ input_path = '~/.config/matugen/templates/btop.theme'
 output_path = '~/.config/btop/themes/matugen.theme'
 post_hook = 'pkill -USR2 btop || true'
 
+[templates.librewolf]
+input_path = '~/.config/matugen/templates/firefox-colors.css'
+output_path = '~/.librewolf/ge7bagju.default-default/chrome/colors.css'
+
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
@@ -12,6 +16,7 @@ output_path = '~/.config/waybar/colors.css'
 [templates.swaync]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
+post_hook = "swaync-client -rs"
 
 [templates.syshud]
 input_path = '~/.config/matugen/templates/colors.css'
@@ -25,9 +30,25 @@ output_path = '~/.config/fuzzel/fuzzel.ini'
 input_path = '~/.config/matugen/templates/niri-layout.kdl'
 output_path = '~/.config/niri/layout.kdl'
 
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt5ct/matugen.conf'
+
+[templates.qt6ct]
+input_path = '~/.config/matugen/templates/qtct-colors.conf'
+output_path = '~/.config/qt6ct/matugen.conf'
+
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty.conf'
 output_path = '~/.config/kitty/theme.conf'
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.zathura]
+input_path = '~/.config/matugen/templates/zathura-colors'
+output_path = '~/.config/zathura/zathurarc'
 
 [templates.kitty-tabs]
 input_path = '~/.config/matugen/templates/kitty-tabs.conf'
@@ -35,12 +56,12 @@ output_path = '~/.config/kitty/tabs.conf'
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
-output_path = '~/.config/gtk-3.0/colors.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
 post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
-input_path = '~/.config/matugen/templates/colors.css'
-output_path = '~/.config/gtk-4.0/colors.css'
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
 
 [templates.gtklock]
 input_path = '~/.config/matugen/templates/colors.css'

@@ -7,7 +7,7 @@ environment {
 }
 
 cursor {
-    xcursor-theme "catppuccin-mocha-dark-cursors"
+    xcursor-theme "Bibata-Original-Classic"
 }
 
 workspace "1"
@@ -196,18 +196,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^org.gnome.Nautilus$"#
-    match app-id=r#"^org.gnome.Papers$"#
-    match app-id=r#"^org.gnome.Loupe$"#
-    match app-id=r#"^io.github.celluloid_player.Celluloid$"#
-    match app-id=r#"^zenity$"#
-    background-effect {
-        xray false
-        blur true
-    }
-}
-
-window-rule {
     match app-id=r#"^org\.kde\.kdeconnect\.daemon$"#
     match app-id=r#"^galculator$"#
     match app-id=r#"^org.kde.kdeconnect.handler$"#
@@ -224,6 +212,7 @@ window-rule {
     match app-id=r#"^org.gnome.Calendar$"#
     match app-id=r#"^Tk$"#
     match app-id=r#"^org.gnome.Loupe$"#
+    match app-id=r#"^org.gnome.FileRoller$"#
 
     open-floating true
 }
@@ -288,11 +277,11 @@ window-rule {
     match app-id=r#"librewolf$"#
     match app-id=r#"google-chrome$"#
     match app-id=r#"firefox$"#
-    opacity 0.92
+    // opacity 0.92
 
-    background-effect {
-        blur true
-    }
+    // background-effect {
+    //     blur true
+    // }
 
     open-on-workspace "2"
     open-focused true
@@ -324,10 +313,10 @@ window-rule {
 window-rule {
     match app-id=r#"^codium$"#
     match app-id=r#"^dev.zed.Zed$"#
-    background-effect {
-        blur true
-    }
-    opacity 0.9
+    // background-effect {
+    //     blur true
+    // }
+    // opacity 0.9
 }
 
 
@@ -384,7 +373,7 @@ binds {
     Mod+D           hotkey-overlay-title="Go to an empty workspace"               repeat=false    { spawn "bash" "-c" "niri msg action focus-workspace $(niri msg --json workspaces | jq 'first(.[] | select(.active_window_id == null) | .id)')"; }
     Mod+E           hotkey-overlay-title="Show emojis: fuzzel"                      repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
     Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"              repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
-    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 6 -T 350 -B 350 -L 100 -R 100"; }
+    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 5 -T 350 -B 350 -L 200 -R 200"; }
     Mod+N           hotkey-overlay-title="Toggle Notification: swaync"              repeat=false    { spawn "swaync-client" "-t"; }
     Mod+Space       hotkey-overlay-title="Toggle bar: waybar"                       repeat=false    { spawn "toggle-waybar"; }
     Mod+I           hotkey-overlay-title="Settings: open config"                    repeat=false    { spawn "gvim" ".config/niri/config.kdl"; }

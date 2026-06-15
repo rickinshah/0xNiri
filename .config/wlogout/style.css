@@ -36,7 +36,7 @@ button:hover {
 #shutdown,
 #hibernate,
 #reboot {
-    background-color: alpha(@surface_container_high, 0.6);
+    background-color: alpha(@surface_container_high, 0);
     border: none;
 }
 

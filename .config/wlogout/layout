@@ -5,12 +5,6 @@
     "keybind" : "l"
 }
 {
-    "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
-}
-{
     "label" : "logout",
     "action" : "niri msg action quit -s",
     "text" : "Logout",
