@@ -104,3 +104,7 @@ output_path = '~/.config/wlogout/assets/shutdown.svg'
 input_path = '~/.config/matugen/templates/cava-colors.ini'
 output_path = '~/.config/cava/themes/matugen'
 post_hook = 'pkill -USR1 cava'
+
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi-theme.toml'
+output_path = '~/.config/yazi/theme.toml'

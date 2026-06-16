@@ -18,7 +18,7 @@ magick ~/.config/niri/wallpaper.jpg -blur 0x20 ~/.config/niri/blur-wallpaper.jpg
 
 matugen image ~/.config/niri/wallpaper.jpg
 
-color=$(match_color.py "$(jq -r '.colors.primary_container' ~/.config/matugen/colors.json)" \
+color=$(match_color.py "$(jq -r '.colors.primary' ~/.config/matugen/colors.json)" \
   | tee /dev/tty \
   | tail -n 1 \
   | jq -r '.selected')
