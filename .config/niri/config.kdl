@@ -373,7 +373,7 @@ binds {
     Mod+D           hotkey-overlay-title="Go to an empty workspace"               repeat=false    { spawn "bash" "-c" "niri msg action focus-workspace $(niri msg --json workspaces | jq 'first(.[] | select(.active_window_id == null) | .id)')"; }
     Mod+E           hotkey-overlay-title="Show emojis: fuzzel"                      repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
     Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"              repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
-    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout -c 15 -b 5 -T 350 -B 350 -L 200 -R 200"; }
+    Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout-script"; }
     Mod+N           hotkey-overlay-title="Toggle Notification: swaync"              repeat=false    { spawn "swaync-client" "-t"; }
     Mod+Space       hotkey-overlay-title="Toggle bar: waybar"                       repeat=false    { spawn "toggle-waybar"; }
     Mod+I           hotkey-overlay-title="Settings: open config"                    repeat=false    { spawn "gvim" ".config/niri/config.kdl"; }

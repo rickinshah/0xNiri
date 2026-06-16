@@ -1,0 +1,3 @@
+#!/bin/bash
+
+wlogout -c 15 -b 5 -T 350 -B 350 -L 200 -R 200
