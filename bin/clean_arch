@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo rm -rf /var/cache/pacman/pkg/download-*
 sudo paccache -ruk0
 sudo paccache -rk3
 yay -Sc
