@@ -32,7 +32,7 @@ https://github.com/user-attachments/assets/5665139e-2eed-4e5c-9f74-c0ab061329ad
 | Power Menu | [`wlogout`](https://github.com/ArtsyMacaw/wlogout) |
 | Screen Locker | [`gtklock`](https://github.com/jovanlanik/gtklock) |
 | On-Screen Display | [`syshud`](https://github.com/System64fumo/syshud) |
-| File Manager | [`thunar`](https://gitlab.xfce.org/xfce/thunar) / [`yazi`](https://github.com/sxyazi/yazi) |
+| File Manager | [`nautilus`](https://gitlab.gnome.org/GNOME/nautilus) / [`yazi`](https://github.com/sxyazi/yazi) |
 | Shell | [`fish`](https://github.com/fish-shell/fish-shell) |
 | Display Manager | [`ly`](https://github.com/fairyglade/ly) |
 
@@ -118,33 +118,14 @@ fish_add_path -a ~/.local/share/bin
 
 #### 8. Post Installation
 
+##### Set GTK Theme
+```fish
+gsettings set org.gnome-desktop.interface gtk-theme "'adw-gtk3-dark'"
+```
+
 ##### Set Wallpaper
 ```fish
 set-wallpaper ~/.config/niri/wallpaper.jpg
-```
-
-##### Install & set GTK Theme
-```fish
-git clone https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme.git ~/themes
-bash ~/themes/themes/install.sh --tweaks macos float -t lavender -l
-gsettings set org.gnome.desktop.interface gtk-theme "'Catppuccin-Lavender-Dark'"
-trash ~/themes
-```
-
-##### Install & set Icon Theme
-```fish
-papirus-folders -C cat-latte-lavender --theme Papirus-Light
-gsettings set org.gnome.desktop.interface icon-theme "'Papirus-Light'"
-```
-
-##### Customize `fish` shell
-```fish
-fisher install IlanCosman/tide@v6
-```
-
-##### Set profile picture in `gtklock`
-```fish
-mugshot
 ```
 
 ## Startup Applications
@@ -197,6 +178,6 @@ systemctl --user add-wants niri.service syshud.service
 
 ## Credits
 
-- [Wallpapers](https://github.com/orangci/walls-catppuccin-mocha)
-- [GTK Theme](https://github.com/Fausto-Korpsvart/Catppuccin-GTK-Theme)
 - [Icon Theme](https://github.com/catppuccin/papirus-folders)
+- [Matugen](https://github.com/InioX/matugen)
+- [Matugen Configs](https://github.com/InioX/matugen-themes)

@@ -53,7 +53,7 @@ done
 
 # Start Optional services
 
-optional_servies=(auto-hide-waybar autotrash easyeffects kdeconnect-indicator wlsunset)
+optional_servies=(auto-hide-waybar autotrash kdeconnect-indicator wlsunset)
 
 for i in ${optional_servies[@]}; do
     read -rp "Do you want to start $i.service? [y/N]: " -n 1
@@ -72,10 +72,6 @@ set-wallpaper ~/.config/niri/wallpaper.jpg
 
 gsettings set org.gnome-desktop.interface gtk-theme "'adw-gtk3-dark'"
 
-# Customize fish shell
-
-fisher install IlanCosman/tide@6
-
 # Set profile picture in gtklock
 
 read -rp "Do you want to set profile picture? [y/N]" -n 1
@@ -85,17 +81,17 @@ fi
 
 # Install Gvim config
 
-read -rp "Do you want to install gvim config? [y/N]" -n 1
-if [[ $REPLY =~ ^[yY]$ ]]; then
-    mv ~/0xNiri/.gvimrc ~/0xNiri/.vimrc ~/
-fi
+# read -rp "Do you want to install gvim config? [y/N]" -n 1
+# if [[ $REPLY =~ ^[yY]$ ]]; then
+#     mv ~/0xNiri/.gvimrc ~/0xNiri/.vimrc ~/
+# fi
 
 # Install Neovim config
 
-read -rp "Do you want to install neovim config? [y/N]" -n 1
-if [[ $REPLY =~ ^[yY]$ ]]; then
-    git clone https://github.com/rickinshah/niri-config.git ~/.config/nvim
-fi
+# read -rp "Do you want to install neovim config? [y/N]" -n 1
+# if [[ $REPLY =~ ^[yY]$ ]]; then
+#     git clone https://github.com/rickinshah/niri-config.git ~/.config/nvim
+# fi
 
 # Some useful stuffs
 
