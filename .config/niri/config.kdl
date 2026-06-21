@@ -350,6 +350,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"^steam_app_default$"#
+    open-on-workspace "5"
+    open-focused true
+}
+
+window-rule {
     match app-id=r#"QtScrcpy$"# title="^Phone-+"
     default-column-width {proportion 0.25;}
 }
@@ -370,7 +376,7 @@ binds {
 
     Mod+A           hotkey-overlay-title="Run an application: fuzzel"               repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel"; }
 
-    Mod+D           hotkey-overlay-title="Go to an empty workspace"               repeat=false    { spawn "bash" "-c" "niri msg action focus-workspace $(niri msg --json workspaces | jq 'first(.[] | select(.active_window_id == null) | .id)')"; }
+    Mod+D           hotkey-overlay-title="Go to an empty workspace"                 repeat=false    { spawn "bash" "-c" "niri msg action focus-workspace $(niri msg --json workspaces | jq 'first(.[] | select(.active_window_id == null) | .id)')"; }
     Mod+E           hotkey-overlay-title="Show emojis: fuzzel"                      repeat=false    { spawn "bash" "-c" "pkill fuzzel || fuzzel-emoji"; }
     Mod+Shift+V     hotkey-overlay-title="Clipboard manager: cliphist"              repeat=false    { spawn "bash" "-c" "pkill fuzzel || cliphist-fuzzel-img"; }
     Mod+Backspace   hotkey-overlay-title="Session Manager: wlogout"                 repeat=false    { spawn "bash" "-c" "pkill wlogout || wlogout-script"; }
@@ -378,9 +384,9 @@ binds {
     Mod+Space       hotkey-overlay-title="Toggle bar: waybar"                       repeat=false    { spawn "toggle-waybar"; }
     Mod+I           hotkey-overlay-title="Settings: open config"                    repeat=false    { spawn "gvim" ".config/niri/config.kdl"; }
     Mod+Print       hotkey-overlay-title="Screen Recording: gpu-screen-recorder"    repeat=false    { spawn "gpu-screen-recorder-gtk"; }
-    Mod+F1          hotkey-overlay-title="Open Text editor: neovim"                 repeat=false    { spawn "kitty" "--title=[nvim]" "nvim"; }
+    Mod+F1          hotkey-overlay-title="Open Text editor: zed"                    repeat=false    { spawn "zeditor"; }
     Mod+F2          hotkey-overlay-title="Open Browser: librewolf"                  repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=librewolf" "librewolf"; }
-    Mod+F3          hotkey-overlay-title="Open File Manager: nautilus"                repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=org.gnome.Nautilus" "nautilus"; }
+    Mod+F3          hotkey-overlay-title="Open File Manager: nautilus"              repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=org.gnome.Nautilus" "nautilus"; }
     Mod+F4          hotkey-overlay-title="Open OBS Studio: obs"                     repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=com.obsproject.Studio" "obs"; }
     Mod+T           hotkey-overlay-title="Open a Terminal: kitty"                   repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=kitty" "--workspace-id=1" "kitty"; }
     Mod+O           hotkey-overlay-title="Toggle Overview Mode"                     repeat=false    { toggle-overview; }
