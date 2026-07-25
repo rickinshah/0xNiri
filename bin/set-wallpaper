@@ -18,6 +18,12 @@ magick ~/.config/niri/wallpaper.jpg -blur 0x20 ~/.config/niri/blur-wallpaper.jpg
 
 matugen image ~/.config/niri/wallpaper.jpg
 
+awww img -n wallpaper ~/.config/niri/wallpaper.jpg --transition-type=wave --transition-angle=30 --transition-duration=2
+awww img -n blur-wallpaper ~/.config/niri/blur-wallpaper.jpg --transition-type=wave --transition-angle=30 --transition-duration=2
+
+systemctl --user restart syshud.service
+kitty @ load-config
+
 color=$(match_color.py "$(jq -r '.colors.primary' ~/.config/matugen/colors.json)" \
   | tee /dev/tty \
   | tail -n 1 \
@@ -39,8 +45,4 @@ else
     gsettings set org.gnome.desktop.interface color-scheme prefer-light
 fi
 
-awww img -n wallpaper ~/.config/niri/wallpaper.jpg --transition-type=wave --transition-angle=30 --transition-duration=2
-awww img -n blur-wallpaper ~/.config/niri/blur-wallpaper.jpg --transition-type=wave --transition-angle=30 --transition-duration=2
-
-systemctl --user restart syshud.service
-kitty @ load-config
+systemctl --user restart polkit-gnome.service

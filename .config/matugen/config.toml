@@ -9,6 +9,10 @@ post_hook = 'pkill -USR2 btop || true'
 input_path = '~/.config/matugen/templates/firefox-colors.css'
 output_path = '~/.librewolf/ge7bagju.default-default/chrome/colors.css'
 
+[templates.nvim]
+input_path = '~/.config/matugen/templates/nvim.json'
+output_path = '~/.config/nvim/colors.json'
+
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'

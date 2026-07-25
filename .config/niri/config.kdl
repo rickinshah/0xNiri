@@ -213,6 +213,9 @@ window-rule {
     match app-id=r#"^Tk$"#
     match app-id=r#"^org.gnome.Loupe$"#
     match app-id=r#"^org.gnome.FileRoller$"#
+    match app-id=r#"^org.gnome.SoundRecorder$"#
+    match app-id=r#"^org.gnome.clocks$"#
+    match app-id=r#"^org.gnome.Solanum$"#
 
     open-floating true
 }

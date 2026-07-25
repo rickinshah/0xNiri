@@ -7,9 +7,9 @@ alias cd='z'
 if status is-interactive
     set -g fish_greeting
     fastfetch --logo-recache true
-    stty -icanon -echo
-    dd bs=1 count=1 >/dev/null 2>&1
-    stty icanon echo
+    # stty -icanon -echo
+    # dd bs=1 count=1 >/dev/null 2>&1
+    # stty icanon echo
     zoxide init fish | source
     direnv hook fish | source
 
